@@ -41,8 +41,6 @@ on:
   push:
     tags:
       - '*'
-    branches:
-      - master
 
 jobs:
   build:
@@ -65,6 +63,48 @@ jobs:
 ## Example
 
 An actual example can be found on this Repository: [Autobot](https://github.com/michaelhenry/AutoBot/blob/master/.github/workflows/deploy_to_cocoapods.yml).
+
+## Recommendations
+
+I also do recommend to automatically sync your library versioning with your `git tags or releases`. for example this  `*.spec` file, I provided an environment variable for `LIB_VERSION` to use as the actual version, else it will goes to fallback version which is `1.0`
+
+```ruby
+Pod::Spec.new do |s|
+  s.name             = 'AutoBot'
+  s.version          = ENV['LIB_VERSION'] || '1.0' #fallback to major version
+  s.summary          = 'UITestCases generator and executor for iOS Application.'
+...
+end
+```
+
+on the github action, we have to update the step `Deploy to Cocoapods` from
+
+```yml
+...
+    - name: Deploy to Cocoapods
+      run: |
+        set -eo pipefail
+        pod lib lint --allow-warning
+        pod trunk push --allow-warnings
+      env:
+        COCOAPODS_TRUNK_TOKEN: ${{ secrets.COCOAPODS_TRUNK_TOKEN }}
+```
+
+to 
+
+```yml
+...
+    - name: Deploy to Cocoapods
+      run: |
+        set -eo pipefail
+        export LIB_VERSION=$(git describe --tags `git rev-list --tags --max-count=1`)
+        pod lib lint --allow-warning
+        pod trunk push --allow-warnings
+      env:
+        COCOAPODS_TRUNK_TOKEN: ${{ secrets.COCOAPODS_TRUNK_TOKEN }}
+```
+
+and that's all.
 
 
 ## Cheers!
