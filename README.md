@@ -134,15 +134,6 @@ to
         COCOAPODS_TRUNK_TOKEN: ${{ secrets.COCOAPODS_TRUNK_TOKEN }}
 ```
 
-OR use the **michaelhenry/deploy-to-cocoapods-github-action@1.0.9** action like this
-
-```yml
-...
-    - uses: michaelhenry/deploy-to-cocoapods-github-action@1.0.9
-      env:
-        COCOAPODS_TRUNK_TOKEN: ${{ secrets.COCOAPODS_TRUNK_TOKEN }}
-```
-
 and that's all.
 
 
