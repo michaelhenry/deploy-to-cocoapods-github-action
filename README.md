@@ -49,8 +49,38 @@ jobs:
 
     steps:
     - uses: actions/checkout@v1
+    
     - name: Install Cocoapods
       run: gem install cocoapods
+    
+    # shortcut version
+    - uses: michaelhenry/deploy-to-cocoapods-github-action@1.0.9
+      env:
+        COCOAPODS_TRUNK_TOKEN: ${{ secrets.COCOAPODS_TRUNK_TOKEN }}
+```
+
+OR
+
+
+```yml
+name: deploy_to_cocoapods
+
+on:
+  push:
+    tags:
+      - '*'
+
+jobs:
+  build:
+
+    runs-on: macOS-latest
+
+    steps:
+    - uses: actions/checkout@v1
+    
+    - name: Install Cocoapods
+      run: gem install cocoapods
+      
     - name: Deploy to Cocoapods
       run: |
         set -eo pipefail
@@ -100,6 +130,15 @@ to
         export LIB_VERSION=$(git describe --tags `git rev-list --tags --max-count=1`)
         pod lib lint --allow-warning
         pod trunk push --allow-warnings
+      env:
+        COCOAPODS_TRUNK_TOKEN: ${{ secrets.COCOAPODS_TRUNK_TOKEN }}
+```
+
+OR use the **michaelhenry/deploy-to-cocoapods-github-action@1.0.9** action like this
+
+```yml
+...
+    - uses: michaelhenry/deploy-to-cocoapods-github-action@1.0.9
       env:
         COCOAPODS_TRUNK_TOKEN: ${{ secrets.COCOAPODS_TRUNK_TOKEN }}
 ```
