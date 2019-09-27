@@ -9,5 +9,5 @@ inputs:
     description: 'The Cocoapods Trunk Token'
     required: true
 runs:
-  using: 'bash'
-  main: 'main.sh'
+  using: 'docker'
+  image: 'Dockerfile'
