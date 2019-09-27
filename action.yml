@@ -4,10 +4,10 @@ author: 'michaelhenry'
 branding:
   icon: 'arrow-up-circle'
   color: 'green'
-inputs: 
+inputs:
   COCOAPODS_TRUNK_TOKEN:
     description: 'The Cocoapods Trunk Token'
     required: true
 runs:
-  using: 'docker'
-  image: 'Dockerfile'
+  using: node12
+  main: main.js
