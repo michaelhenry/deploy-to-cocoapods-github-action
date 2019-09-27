@@ -1,3 +1,6 @@
 name: Deploy to Cocoapod Action
 description: An action for deploying iOS pod library to Cocoapod repo.
 author: 'michaelhenry'
+branding:
+  icon: 'arrow-up-circle'
+  color: 'green'
