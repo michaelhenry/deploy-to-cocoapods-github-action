@@ -84,7 +84,7 @@ jobs:
     - name: Deploy to Cocoapods
       run: |
         set -eo pipefail
-        pod lib lint --allow-warning
+        pod lib lint --allow-warnings
         pod trunk push --allow-warnings
       env:
         COCOAPODS_TRUNK_TOKEN: ${{ secrets.COCOAPODS_TRUNK_TOKEN }}
@@ -114,7 +114,7 @@ on the github action, we have to update the step `Deploy to Cocoapods` from
     - name: Deploy to Cocoapods
       run: |
         set -eo pipefail
-        pod lib lint --allow-warning
+        pod lib lint --allow-warnings
         pod trunk push --allow-warnings
       env:
         COCOAPODS_TRUNK_TOKEN: ${{ secrets.COCOAPODS_TRUNK_TOKEN }}
@@ -128,7 +128,7 @@ to
       run: |
         set -eo pipefail
         export LIB_VERSION=$(git describe --tags `git rev-list --tags --max-count=1`)
-        pod lib lint --allow-warning
+        pod lib lint --allow-warnings
         pod trunk push --allow-warnings
       env:
         COCOAPODS_TRUNK_TOKEN: ${{ secrets.COCOAPODS_TRUNK_TOKEN }}
