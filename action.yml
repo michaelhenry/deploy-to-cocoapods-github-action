@@ -1,3 +1,5 @@
+- name: Deploy to Cocoapod Action
+  uses: michaelhenry/deploy-to-cocoapods-github-action@1.0.9
 name: Deploy to Cocoapod Action
 description: An action for deploying iOS pod library to Cocoapod repo.
 author: 'michaelhenry'
