@@ -1,13 +1,2 @@
-name: Deploy to Cocoapod Action
-description: An action for deploying iOS pod library to Cocoapod repo.
-author: 'michaelhenry'
-branding:
-  icon: 'arrow-up-circle'
-  color: 'green'
-inputs:
-  COCOAPODS_TRUNK_TOKEN:
-    description: 'The Cocoapods Trunk Token'
-    required: true
-runs:
-  using: node12
-  main: main.js
+   - name: Deploy to Cocoapod Action
+  uses: michaelhenry/deploy-to-cocoapods-github-action@1.0.9
