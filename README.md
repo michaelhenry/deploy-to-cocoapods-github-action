@@ -54,7 +54,7 @@ jobs:
       run: gem install cocoapods
     
     # shortcut version
-    - uses: michaelhenry/deploy-to-cocoapods-github-action@1.0.9
+    - uses: michaelhenry/deploy-to-cocoapods-github-action@1.0.10
       env:
         COCOAPODS_TRUNK_TOKEN: ${{ secrets.COCOAPODS_TRUNK_TOKEN }}
 ```
