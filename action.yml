@@ -1,5 +1,5 @@
-name: Deploy to Cocoapod Action
-description: An action for deploying iOS pod library to Cocoapod repo.
+name: Deploy to Cocoapods Action
+description: An action for deploying iOS pod library to Cocoapods repo.
 author: 'michaelhenry'
 branding:
   icon: 'arrow-up-circle'
