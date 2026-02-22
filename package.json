@@ -1,5 +1,5 @@
 {
   "dependencies": {
-    "shelljs": "^0.8"
+    "shelljs": "^0.10"
   }
 }
